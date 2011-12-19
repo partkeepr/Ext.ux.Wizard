@@ -122,10 +122,10 @@ Ext.define('Ext.ux.Wizard', {
 
     /**
     * @param {Number} currentCard The current {@link Ext.ux.Wiz.Card} displayed.
-    * Defaults to -1.
+    * Defaults to 0.
     * @private
     */
-    currentCard: -1,
+    currentCard: 0,
 
     /**
     * @param {Ext.ux.Wiz.Header} The header-panel of the wizard.
@@ -328,7 +328,7 @@ Ext.define('Ext.ux.Wizard', {
     * hide the head panel
     * 
     */
-    showHeadPanel: function () {
+    hideHeadPanel: function () {
         this.headPanel.hide();
     },
 
@@ -578,8 +578,5 @@ Ext.define('Ext.ux.Wizard', {
         this.callParent();
 
         var ly = this.cardPanel.getLayout();
-
-        ly['next']();
-        ly['prev']();
     }
 });
