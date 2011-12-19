@@ -35,8 +35,6 @@ Ext.define('Ext.ux.wizard.Card', {
 
     initComponent: function () {
 
-        var c = this.initialConfig;
-
         this.addEvents(
         /**
         * @event beforecardhide
@@ -55,8 +53,8 @@ Ext.define('Ext.ux.wizard.Card', {
             'beforecardhide'
         );
 
-        this.cardTitle = c.title;
-        this.title = (c.showTitle ? '<span style="' + c.titleStyle + '" class="' + c.titleCls + '" >' + c.title + '</span>' : '');
+        this.cardTitle = this.title;
+        this.title = (this.showTitle ? '<span style="' + this.titleStyle + '" class="' + this.titleCls + '" >' + this.title + '</span>' : '');
 
         this.dockedItems = [{
             xtype: 'container',
@@ -75,8 +73,8 @@ Ext.define('Ext.ux.wizard.Card', {
                 errorpanel: true,
                 baseCls: 'form-error-state',
                 flex: 1,
-                validText: c.validText,
-                invalidText: c.invalidText || 'Error/s detected. Please modify...',
+                validText: this.validText,
+                invalidText: this.invalidText || 'Error/s detected. Please modify...',
                 tipTpl: Ext.create('Ext.XTemplate', '<ul><tpl for="."><li><span class="field-name">{name}</span>: <span class="error">{error}</span></li></tpl></ul>'),
 
                 getTip: function () {
