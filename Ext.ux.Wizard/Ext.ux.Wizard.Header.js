@@ -152,7 +152,7 @@ Ext.define('Ext.ux.wizard.Header', {
     * Overrides parent implementation to initComponent this component properly.
     */
     initComponent: function () {
-
+		this.autoEl.cls = this.autoEl.cls + " " + this.cls;
         this.callParent(arguments);
 
     },
