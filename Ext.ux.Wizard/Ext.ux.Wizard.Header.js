@@ -20,7 +20,7 @@
  * @param {Object} config The config object
  */
 Ext.define('Ext.ux.wizard.Header', {
-    extend: 'Ext.Component',
+    extend: 'Ext.container.Container',
     alias: 'widget.wizardheader',
 
     /**
@@ -154,7 +154,6 @@ Ext.define('Ext.ux.wizard.Header', {
     initComponent: function () {
 		this.autoEl.cls = this.autoEl.cls + " " + this.cls;
         this.callParent(arguments);
-
     },
 
     /**
