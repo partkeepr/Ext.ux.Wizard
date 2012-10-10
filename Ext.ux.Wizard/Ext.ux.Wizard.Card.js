@@ -56,6 +56,10 @@ Ext.define('Ext.ux.wizard.Card', {
         this.cardTitle = this.title;
         this.title = (this.showTitle ? '<span style="' + this.titleStyle + '" class="' + this.titleCls + '" >' + this.title + '</span>' : '');
 
+        if (this.showTitle) {
+            this.header = true;
+        }
+
         this.dockedItems = [{
             xtype: 'container',
             xtype: 'toolbar',
