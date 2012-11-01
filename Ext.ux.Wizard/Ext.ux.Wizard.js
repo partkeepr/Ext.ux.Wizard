@@ -377,8 +377,7 @@ Ext.define('Ext.ux.Wizard', {
         // var cards = this.cards;
 
         for (var i = 0, len = cards.length; i < len; i++) {
-            cards[i].on('show', this.onCardShow, this);
-            cards[i].on('hide', this.onCardHide, this);
+            cards[i].on('beforeactivate', this.onCardShow, this);
             cards[i].on('clientvalidation', this.onClientValidation, this);
         }
 
@@ -446,23 +445,12 @@ Ext.define('Ext.ux.Wizard', {
     */
     onClientValidation: function (card, isValid) {
         if (!isValid) {
+            console.log("setting disabled in onClientValidation");
             this.nextButton.setDisabled(true);
         } else {
             this.nextButton.setDisabled(false);
         }
     },
-
-    /**
-    * This will render the "next" button as disabled since the bindHandler's delay
-    * of the next card to show might be lagging on slower systems
-    *
-    */
-    onCardHide: function (card) {
-        if (this.cardPanel.layout.activeItem.id === card.id) {
-            this.nextButton.setDisabled(true);
-        }
-    },
-
 
     /**
     * Listener for the "show" event of the card that gets shown in the card-panel.
