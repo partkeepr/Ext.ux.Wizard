@@ -193,12 +193,6 @@ Ext.define('Ext.ux.wizard.Card', {
         this.monitorValid = false;
         this.callParent();
         this.monitorValid = old;
-
-        this.on('beforehide', this.bubbleBeforeHideEvent, this);
-
-        this.on('beforecardhide', this.isValid, this);
-        this.on('show', this.onCardShow, this);
-        this.on('hide', this.onCardHide, this);
     },
 
     // -------- listener
@@ -210,7 +204,7 @@ Ext.define('Ext.ux.wizard.Card', {
         var activeItem = ly.activeItem;
 
         if (activeItem && activeItem.id === this.id) {
-            return this.fireEvent('beforecardhide', this);
+            //return this.fireEvent('beforedeactivate', this);
         }
 
         return true;
